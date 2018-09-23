@@ -7,6 +7,14 @@ class AddPlayer extends Component {
         this.state = {
             inputValue: ""
         }
+
+        //this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleSubmit(e) {
+        e.preventDefault()
+        this.props.onSubmit(this.state.inputValue);
+        this.setState({ inputValue: "" })
     }
 
     handleChange(e) {
@@ -15,11 +23,15 @@ class AddPlayer extends Component {
 
     render() {
         return (
-            <input 
-                type="text" 
-                onChange={ (e) => this.handleChange(e) } 
-                value={ this.state.inputValue }
-            />
+            <form onSubmit={ (e) => this.handleSubmit(e) }>
+                <input 
+                    type="text" 
+                    onChange={ (e) => this.handleChange(e) } 
+                    value={ this.state.inputValue }
+                />
+                <button>Add Player</button>
+            </form>
+
         )
     }
 }
