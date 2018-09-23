@@ -7,8 +7,6 @@ class AddPlayer extends Component {
         this.state = {
             inputValue: ""
         }
-
-        //this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleSubmit(e) {

@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import './App.css';
 import { Provider } from "react-redux";
 import store from "./data/store";
-import AddPlayer from './containers/AddPlayer';
+import Setup from './components/Setup';
 
 class App extends Component {
   render() {
     return (
       <Provider store={ store }>
-        <AddPlayer />
+        <Setup />
       </Provider>
     );
   }

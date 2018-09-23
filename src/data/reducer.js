@@ -1,6 +1,13 @@
 const addPlayerToState = (state, playerData) => {
     let newState = { ...state };
-    newState.players.push(playerData);
+    newState = {
+        ...newState,
+        players: [
+            ...newState.players,
+            playerData
+        ]
+    };
+    //newState.players.push(playerData);
     return newState;
 }
 
