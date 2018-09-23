@@ -1,10 +1,13 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import './App.css';
+import AddPlayer from './components/AddPlayer';
 
 class App extends Component {
   render() {
     return (
-      <p></p>
+      <Fragment>
+        <AddPlayer />
+      </Fragment>
     );
   }
 }
