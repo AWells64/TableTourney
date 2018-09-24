@@ -5,6 +5,7 @@ class CurrentGame extends Component {
         super(props);
 
         this.state = {
+            gameNo: 1,
             p1Points: 0,
             p2Points: 0,
             p1Turn: true
@@ -24,6 +25,19 @@ class CurrentGame extends Component {
         this.setState({ p2Points: newPoints });
     }
 
+    initiateNextGame(winner) {
+        let matchData = {
+            gameNo: this.state.gameNo,
+            p1Points: this.state.p1Points,
+            p2Points: this.state.p2Points,
+            winner: winner
+        }
+        this.props.saveMatch(matchData)
+
+        let newGameNo = this.state.gameNo + 1;
+        this.setState({ p1Points: 0, p2Points: 0, gameNo: newGameNo })
+    }
+
     render() {
         let { p1Points, p2Points, groupedPlayers } = this.state;
         let winner = "";
@@ -39,7 +53,7 @@ class CurrentGame extends Component {
                 <div>
                     <h2>player 1 name wins!</h2>
                     <p>{p1Points} - {p2Points}</p>
-                    <button onClick={ this.initateNextGame }>Next game</button>
+                    <button onClick={ () => this.initiateNextGame(winner) }>Next game</button>
                 </div>
             )
         } else if (winner === 'p2') {
@@ -47,7 +61,7 @@ class CurrentGame extends Component {
                 <div>
                     <h2>player 2 name wins!</h2>
                     <p>{p1Points} - {p2Points}</p>
-                    <button onClick={ this.initateNextGame }>Next game</button>
+                    <button onClick={ () => this.initiateNextGame(winner) }>Next game</button>
                 </div>
             )
         } else {

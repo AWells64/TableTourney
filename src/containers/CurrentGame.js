@@ -1,5 +1,6 @@
 import { connect } from "react-redux";
 import CurrentGame from '../components/CurrentGame';
+import { saveMatch } from '../data/actions';
 
 const mapStateToProps = (state) => {
     return {
@@ -7,4 +8,10 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(CurrentGame);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        saveMatch: (matchData) => dispatch(saveMatch(matchData))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CurrentGame);

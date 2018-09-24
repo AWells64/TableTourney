@@ -12,3 +12,10 @@ export const saveGroups = groups => {
         groups: groups
     }
 }
+
+export const saveMatch = matchData => {
+    return {
+        type: 'saveMatch',
+        matchData: matchData
+    }
+}
