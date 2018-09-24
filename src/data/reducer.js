@@ -13,6 +13,7 @@ const addPlayerToState = (state, playerData) => {
 const saveGroupsToState = (state, groups) => {
     let newState = { ...state };
 
+    // Create initial Matches
     groups.map((group, i) => {
         newState = {
             ...newState,
@@ -47,6 +48,23 @@ const saveMatchToState = (state, matchData) => {
             }
         }
     } 
+
+    // Create Future Matches
+    if (state.players.length === 4) {
+        newState = {
+            ...newState,
+            matches: {
+                ...newState.matches,
+                3: {
+                    player1: newState.matches[1].winner,
+                    player2: newState.matches[2].winner,
+                    p1Points: 0,
+                    p2Points: 0,
+                    winner: ''
+                }
+            }
+        }
+    }
     return newState;
 }
 

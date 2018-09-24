@@ -39,7 +39,7 @@ class CurrentGame extends Component {
     }
 
     render() {
-        let { p1Points, p2Points, groupedPlayers } = this.state;
+        let { p1Points, p2Points } = this.state;
         let winner = "";
 
         if (p1Points >= 21) {

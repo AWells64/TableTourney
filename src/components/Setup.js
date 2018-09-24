@@ -25,11 +25,25 @@ class Setup extends Component {
     }
 
     render() {
+        const disabledStyle = {
+            backgroundColor: 'grey'
+        }
+
+        const buttonStyle = {
+            backgroundColor: 'white'
+        }
+
         return (
             <div>
                 <AddPlayer />
                 <PlayerList />
-                <button type="button" onClick={ (e) => this.handleGenerateClick(e) }>Generate your bracket!</button>
+                <button 
+                    type="button" 
+                    onClick={ (e) => this.handleGenerateClick(e) } 
+                    style={(this.props.players % 2 === 0) ? buttonStyle : disabledStyle}
+                >
+                    Generate your bracket!
+                </button>
             </div>
         )
     }
