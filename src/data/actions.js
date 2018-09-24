@@ -4,3 +4,11 @@ export const addPlayer = playerData => {
         playerData: playerData
     }
 }
+
+export const saveGroups = groups => {
+    console.log(groups);
+    return {
+        type: 'saveGroups',
+        groups: groups
+    }
+}

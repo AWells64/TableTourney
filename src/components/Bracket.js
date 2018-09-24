@@ -1,17 +1,23 @@
 import React, { Component } from 'react';
 
-class Brackets extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            players: ['bob', 'joe', 'bill', 'mark']
-        }
-    }
-
+class Bracket extends Component {
     render() {
+        //     return groupedPlayers.map((group, i) => {
+        //         return (
+        //             <div key={ i } className="match-pair">
+        //                 <p>{ group[0] }</p>
+        //                 <p>{ group[1] }</p>
+        //             </div>
+        //         )
+        //     })
+        // } else {
+        //     <p></p>
+        // }
+
         return (
-            <div></div>
+            <p></p>
         );
     }
 }
+
+export default Bracket;
