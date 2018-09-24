@@ -30,6 +30,25 @@ const saveGroupsToState = (state, groups) => {
         } 
     })
 
+    // Create Future Matches
+    let count = 1;
+    for (let i = (state.players.length / 2) + 1; i < state.players.length; i += 1) {
+        newState = {
+            ...newState,
+                matches: {
+                ...newState.matches,
+                [i]: {
+                    player1: newState.matches[count].winner,
+                    player2: newState.matches[count + 1].winner,
+                    p1Points: 0,
+                    p2Points: 0,
+                    winner: ''
+                }
+            }
+        }
+        count += 2;
+    }
+
     return newState;
 }
 
@@ -45,23 +64,6 @@ const saveMatchToState = (state, matchData) => {
                 p1Points: matchData.p1Points,
                 p2Points: matchData.p2Points,
                 winner: matchData.winner
-            }
-        }
-    } 
-
-    // Create Future Matches
-    if (state.players.length === 4) {
-        newState = {
-            ...newState,
-            matches: {
-                ...newState.matches,
-                3: {
-                    player1: newState.matches[1].winner,
-                    player2: newState.matches[2].winner,
-                    p1Points: 0,
-                    p2Points: 0,
-                    winner: ''
-                }
             }
         }
     }
