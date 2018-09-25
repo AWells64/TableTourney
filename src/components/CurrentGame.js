@@ -53,7 +53,11 @@ class CurrentGame extends Component {
                 <div>
                     <h2>{ this.props.matches[gameNo].player1 } is the winner!</h2>
                     <p>{p1Points} - {p2Points}</p>
-                    <button onClick={ () => this.initiateNextGame(this.props.matches[gameNo].player1) }>Next game</button>
+                    {
+                        (gameNo === Object.keys(this.props.matches).length) ? null : (
+                            <button onClick={ () => this.initiateNextGame(this.props.matches[gameNo].player1) }>Next game</button>
+                        )
+                    }
                 </div>
             )
         } else if (winner === 'p2') {
@@ -61,7 +65,11 @@ class CurrentGame extends Component {
                 <div>
                     <h2>{ this.props.matches[gameNo].player2 } is the winner!</h2>
                     <p>{p1Points} - {p2Points}</p>
-                    <button onClick={ () => this.initiateNextGame(this.props.matches[gameNo].player2) }>Next game</button>
+                    {
+                        (gameNo === Object.keys(this.props.matches).length) ? null : (
+                            <button onClick={ () => this.initiateNextGame(this.props.matches[gameNo].player2) }>Next game</button>
+                        )
+                    }
                 </div>
             )
         } else {

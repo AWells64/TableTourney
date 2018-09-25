@@ -38,8 +38,8 @@ const saveGroupsToState = (state, groups) => {
                 matches: {
                 ...newState.matches,
                 [i]: {
-                    player1: newState.matches[count].winner,
-                    player2: newState.matches[count + 1].winner,
+                    player1: '',
+                    player2: '',
                     p1Points: 0,
                     p2Points: 0,
                     winner: ''
@@ -54,7 +54,8 @@ const saveGroupsToState = (state, groups) => {
 
 const saveMatchToState = (state, matchData) => {
     let newState = {...state};
-    
+    let nextMatchForWinner = (state.players.length / 2) + (Math.ceil(matchData.gameNo / 2));
+    let nextMatchForWinnerPlayerNumber = (matchData.gameNo % 2 !== 0) ? 'player1' : 'player2';
     newState = {
         ...newState,
         matches: {
@@ -64,6 +65,10 @@ const saveMatchToState = (state, matchData) => {
                 p1Points: matchData.p1Points,
                 p2Points: matchData.p2Points,
                 winner: matchData.winner
+            },
+            [nextMatchForWinner]: {
+                ...newState.matches[nextMatchForWinner],
+                [nextMatchForWinnerPlayerNumber]: matchData.winner
             }
         }
     }
