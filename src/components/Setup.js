@@ -4,10 +4,6 @@ import AddPlayer from '../containers/AddPlayer';
 import PlayerList from '../containers/PlayerList';
 
 class Setup extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     handleGenerateClick(e) {
         e.preventDefault();
 

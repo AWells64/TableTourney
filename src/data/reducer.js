@@ -10,6 +10,14 @@ const addPlayerToState = (state, playerData) => {
     return newState;
 }
 
+const deletePlayerFromState = (state, playerIndex) => {
+    let newState = { ...state };
+
+    newState.players.splice(playerIndex, 1);
+
+    return newState;
+}
+
 const saveGroupsToState = (state, groups) => {
     let newState = { ...state };
 
@@ -31,7 +39,6 @@ const saveGroupsToState = (state, groups) => {
     })
 
     // Create Future Matches
-    let count = 1;
     for (let i = (state.players.length / 2) + 1; i < state.players.length; i += 1) {
         newState = {
             ...newState,
@@ -46,7 +53,6 @@ const saveGroupsToState = (state, groups) => {
                 }
             }
         }
-        count += 2;
     }
 
     return newState;
@@ -79,6 +85,8 @@ const reducer = (state, action) => {
     switch (action.type) {
         case 'addPlayer':
             return addPlayerToState(state, action.playerData);
+        case 'deletePlayer':
+            return deletePlayerFromState(state, action.playerIndex);
         case 'saveGroups':
             return saveGroupsToState(state, action.groups);
         case 'saveMatch':

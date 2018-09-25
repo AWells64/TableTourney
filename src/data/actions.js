@@ -5,8 +5,14 @@ export const addPlayer = playerData => {
     }
 }
 
+export const deletePlayer = playerIndex => {
+    return {
+        type: 'deletePlayer',
+        playerIndex: playerIndex
+    }
+}
+
 export const saveGroups = groups => {
-    console.log(groups);
     return {
         type: 'saveGroups',
         groups: groups

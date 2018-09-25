@@ -6,7 +6,12 @@ class PlayerList extends Component {
             <ul>
                 {
                     this.props.players.map((player, i) => {
-                        return <li key={ i }>{ player }</li>
+                        return (
+                            <li key={i}>
+                                <p>{ player }</p>
+                                <button onClick={ () => this.props.deletePlayer(i) }>Delete</button>
+                            </li>
+                        ) 
                     })
                 }
             </ul>

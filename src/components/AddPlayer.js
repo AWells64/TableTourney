@@ -20,8 +20,9 @@ class AddPlayer extends Component {
     }
 
     render() {
+        let canSubmit = this.state.inputValue !== '' ? ((e) => this.handleSubmit(e)) : ((e) => e.preventDefault());
         return (
-            <form onSubmit={ (e) => this.handleSubmit(e) }>
+            <form onSubmit={ canSubmit }>
                 <input 
                     type="text" 
                     onChange={ (e) => this.handleChange(e) } 
