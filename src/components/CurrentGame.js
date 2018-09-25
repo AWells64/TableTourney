@@ -39,7 +39,7 @@ class CurrentGame extends Component {
     }
 
     render() {
-        let { p1Points, p2Points } = this.state;
+        let { p1Points, p2Points, gameNo } = this.state;
         let winner = "";
 
         if (p1Points >= 21) {
@@ -51,31 +51,31 @@ class CurrentGame extends Component {
         if (winner === 'p1') {
             return (
                 <div>
-                    <h2>player 1 name wins!</h2>
+                    <h2>{ this.props.matches[gameNo].player1 } is the winner!</h2>
                     <p>{p1Points} - {p2Points}</p>
-                    <button onClick={ () => this.initiateNextGame(winner) }>Next game</button>
+                    <button onClick={ () => this.initiateNextGame(this.props.matches[gameNo].player1) }>Next game</button>
                 </div>
             )
         } else if (winner === 'p2') {
             return (
                 <div>
-                    <h2>player 2 name wins!</h2>
+                    <h2>{ this.props.matches[gameNo].player2 } is the winner!</h2>
                     <p>{p1Points} - {p2Points}</p>
-                    <button onClick={ () => this.initiateNextGame(winner) }>Next game</button>
+                    <button onClick={ () => this.initiateNextGame(this.props.matches[gameNo].player2) }>Next game</button>
                 </div>
             )
         } else {
             return (
                 <div>
                     <div>
-                        <h2>Name 1</h2>
+                        <h2>{ this.props.matches[gameNo] ? this.props.matches[gameNo].player1: null  }</h2>
                         <p>{ p1Points }</p>
                         <button onClick={ this.addP1Point }>Add Point</button>
                     </div>
                     <p>{ ' - ' }</p>
                     <div>
                         <p>{ p2Points }</p>
-                        <h2>Name 2</h2>
+                        <h2>{ this.props.matches[gameNo] ? this.props.matches[gameNo].player2: null }</h2>
                         <button onClick={ this.addP2Point }>Add Point</button>
                     </div>
                 </div>
