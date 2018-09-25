@@ -5,10 +5,10 @@ export const addPlayer = playerData => {
     }
 }
 
-export const deletePlayer = playerIndex => {
+export const deletePlayer = player => {
     return {
         type: 'deletePlayer',
-        playerIndex: playerIndex
+        player: player
     }
 }
 

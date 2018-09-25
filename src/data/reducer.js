@@ -10,11 +10,19 @@ const addPlayerToState = (state, playerData) => {
     return newState;
 }
 
-const deletePlayerFromState = (state, playerIndex) => {
+const deletePlayerFromState = (state, player) => {
     let newState = { ...state };
 
-    newState.players.splice(playerIndex, 1);
+    let findName = (element) => {
+        return element === player;
+    }
+    newState.players.splice(newState.players.findIndex(findName), 1);
 
+    newState = {
+        ...newState,
+        players: [...newState.players ]
+    };
+    
     return newState;
 }
 
@@ -86,7 +94,7 @@ const reducer = (state, action) => {
         case 'addPlayer':
             return addPlayerToState(state, action.playerData);
         case 'deletePlayer':
-            return deletePlayerFromState(state, action.playerIndex);
+            return deletePlayerFromState(state, action.player);
         case 'saveGroups':
             return saveGroupsToState(state, action.groups);
         case 'saveMatch':

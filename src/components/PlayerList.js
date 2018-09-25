@@ -9,7 +9,7 @@ class PlayerList extends Component {
                         return (
                             <li key={i}>
                                 <p>{ player }</p>
-                                <button onClick={ () => this.props.deletePlayer(i) }>Delete</button>
+                                <button onClick={ () => this.props.deletePlayer(player) }>Delete</button>
                             </li>
                         ) 
                     })

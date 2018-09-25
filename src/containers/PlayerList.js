@@ -10,7 +10,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        deletePlayer: (playerIndex) => dispatch(deletePlayer(playerIndex))
+        deletePlayer: (player) => dispatch(deletePlayer(player))
     }
 }
 
