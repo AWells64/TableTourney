@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../styles/AddPlayer.css';
 
 class AddPlayer extends Component {
     constructor(props) {
@@ -22,13 +23,15 @@ class AddPlayer extends Component {
     render() {
         let canSubmit = this.state.inputValue !== '' ? ((e) => this.handleSubmit(e)) : ((e) => e.preventDefault());
         return (
-            <form onSubmit={ canSubmit }>
+            <form className="add-player-form" onSubmit={ canSubmit }>
+                <label className="input-label">Add a player to your tourney:</label>
                 <input 
+                    className="player-input"
                     type="text" 
                     onChange={ (e) => this.handleChange(e) } 
                     value={ this.state.inputValue }
                 />
-                <button>Add Player</button>
+                <button className="add-player-button">+</button>
             </form>
 
         )

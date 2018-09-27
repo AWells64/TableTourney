@@ -1,0 +1,8 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto');
+
+body {
+  background-color: #17141f;
+  padding: 50px;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+}

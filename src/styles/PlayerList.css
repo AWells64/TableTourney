@@ -1,0 +1,34 @@
+.player-list {
+    margin: 0px;
+    padding: 0px;
+    border: 1px solid 	white;
+    box-shadow: 1px 1px 10px black;
+    background-color: #302142;
+    border: 2px solid white;
+    border-radius: 3px;
+}
+
+.player-list-item {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    padding: 10px 50px;
+    position: relative;
+    border-bottom: 1px solid #aaa;
+    box-shadow: 1px 1px 10px black;
+}
+
+.player-name {
+    margin-right: 50px;
+}
+
+.delete-button {
+    right: 5px;
+    top: 35%;
+    position: absolute;
+    border-radius: 0px;
+    background-color: transparent;
+    color: white;
+    border: none;
+    font-size: 1.1em;
+}

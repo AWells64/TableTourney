@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { shuffle } from '../utility';
 import { Link } from 'react-router-dom';
 import AddPlayer from '../containers/AddPlayer';
 import PlayerList from '../containers/PlayerList';
+import '../styles/Setup.css';
 
 class Setup extends Component {
     handleGenerateClick(e) {
@@ -22,29 +23,27 @@ class Setup extends Component {
     }
 
     render() {
-        const disabledStyle = {
-            backgroundColor: 'grey'
-        }
-
-        const buttonStyle = {
-            backgroundColor: 'white'
-        }
-
         return (
-            <div>
-                <AddPlayer />
-                <PlayerList />
-                <Link to="/bracket">
-                    <button 
-                        type="button" 
-                        onClick={ (e) => this.handleGenerateClick(e) } 
-                        style={(this.props.players % 2 === 0) ? buttonStyle : disabledStyle}
-                    >
-                        Generate your bracket!
-                    </button>
-                </Link>
-
-            </div>
+            <Fragment>
+                <h1 className="title">TableTourney Bracket Generator</h1>
+                <div className="setup-wrapper">
+                    <div className="setup-left-column">
+                        <AddPlayer />
+                        <Link to="/bracket/">
+                            <button
+                                className="generate-button" 
+                                type="button" 
+                                onClick={ (e) => this.handleGenerateClick(e) } 
+                            >
+                                GENERATE BRACKET
+                            </button>
+                        </Link>
+                    </div>
+                    <div className="setup-right-column">
+                        <PlayerList />
+                    </div>
+                </div>
+            </Fragment>
         )
     }
 

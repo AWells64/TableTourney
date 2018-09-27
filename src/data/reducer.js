@@ -53,8 +53,8 @@ const saveGroupsToState = (state, groups) => {
                 matches: {
                 ...newState.matches,
                 [i]: {
-                    player1: 'winner',
-                    player2: 'winner',
+                    player1: '',
+                    player2: '',
                     p1Points: 0,
                     p2Points: 0,
                     winner: ''

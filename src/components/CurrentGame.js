@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../styles/CurrentGame.css';
 
 class CurrentGame extends Component {
     constructor(props) {
@@ -50,7 +51,7 @@ class CurrentGame extends Component {
 
         if (winner === 'p1') {
             return (
-                <div>
+                <div className="current-game-wrapper">
                     <h2>{ this.props.matches[gameNo].player1 } is the winner!</h2>
                     <p>{p1Points} - {p2Points}</p>
                     {
@@ -62,7 +63,7 @@ class CurrentGame extends Component {
             )
         } else if (winner === 'p2') {
             return (
-                <div>
+                <div className="current-game-wrapper">
                     <h2>{ this.props.matches[gameNo].player2 } is the winner!</h2>
                     <p>{p1Points} - {p2Points}</p>
                     {
@@ -74,17 +75,17 @@ class CurrentGame extends Component {
             )
         } else {
             return (
-                <div>
+                <div className="current-game-wrapper">
                     <div>
+                        <p className="points">{ p1Points }</p>
                         <h2>{ this.props.matches[gameNo] ? this.props.matches[gameNo].player1: null  }</h2>
-                        <p>{ p1Points }</p>
-                        <button onClick={ this.addP1Point }>Add Point</button>
+                        <button className="add-point-button" onClick={ this.addP1Point }>+</button>
                     </div>
-                    <p>{ ' - ' }</p>
+                    <p className="hyphen">{ ' - ' }</p>
                     <div>
-                        <p>{ p2Points }</p>
+                        <p className="points">{ p2Points }</p>
                         <h2>{ this.props.matches[gameNo] ? this.props.matches[gameNo].player2: null }</h2>
-                        <button onClick={ this.addP2Point }>Add Point</button>
+                        <button className="add-point-button" onClick={ this.addP2Point }>+</button>
                     </div>
                 </div>
             )

@@ -1,0 +1,15 @@
+.match {
+    background-color: #302142;
+    margin: 50px;
+    border: 2px solid white;
+    border-radius: 3px;
+}
+
+.match-player-text-1, .match-player-text-2 {
+    text-align: center;
+}
+
+.match-player-text-1 {
+    border-bottom: 1px solid #aaa;
+    padding-bottom: 17px;
+}

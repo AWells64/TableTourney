@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { roundFinder, rowFinder } from '../utility';
-import '../App.css';
+import CurrentGame from '../containers/CurrentGame';
+import '../styles/Bracket.css';
 
 class Bracket extends Component {
     render() {
@@ -15,29 +16,30 @@ class Bracket extends Component {
         }
 
         return(
-            <div style={bracketWrapperStyle}>
-                {
-                    Object.values(matches).map((match, i) => {
-                        const gameNo = i + 1; 
-                        const initialPlayers = players.length;
-                        const currentMatchRound = roundFinder(gameNo, initialPlayers);
-                        const currentMatchRow = rowFinder(initialPlayers, currentMatchRound, gameNo);
-                        const matchGroupStyle = {
-                            gridColumn: `${currentMatchRound}`,
-                            gridRow: `${currentMatchRow}`,
-                            border: '1px solid black',
-                            margin: '20px'
-                        }
+            <Fragment>
+                <div style={bracketWrapperStyle}>
+                    {
+                        Object.values(matches).map((match, i) => {
+                            const gameNo = i + 1; 
+                            const initialPlayers = players.length;
+                            const currentMatchRound = roundFinder(gameNo, initialPlayers);
+                            const currentMatchRow = rowFinder(initialPlayers, currentMatchRound, gameNo);
+                            const matchGroupStyle = {
+                                gridColumn: `${currentMatchRound}`,
+                                gridRow: `${currentMatchRow}`,
+                            }
 
-                        return (
-                            <div key={ i } style={matchGroupStyle}>
-                                <p className="matchPlayerText">{ match.player1 }</p>
-                                <p className="matchPlayerText">{ match.player2 }</p>
-                            </div>
-                        )
-                    })
-                }
-            </div>
+                            return (
+                                <div className="match" key={ i } style={matchGroupStyle}>
+                                    <p className="match-player-text-1">{ match.player1 }</p>
+                                    <p className="match-player-text-2">{ match.player2 }</p>
+                                </div>
+                            )
+                        })
+                    }
+                </div>
+                <CurrentGame />
+            </Fragment>
         )
     }
 }
