@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { shuffle } from '../utility';
+import { Link } from 'react-router-dom';
 import AddPlayer from '../containers/AddPlayer';
 import PlayerList from '../containers/PlayerList';
 
@@ -33,13 +34,16 @@ class Setup extends Component {
             <div>
                 <AddPlayer />
                 <PlayerList />
-                <button 
-                    type="button" 
-                    onClick={ (e) => this.handleGenerateClick(e) } 
-                    style={(this.props.players % 2 === 0) ? buttonStyle : disabledStyle}
-                >
-                    Generate your bracket!
-                </button>
+                <Link to="/bracket">
+                    <button 
+                        type="button" 
+                        onClick={ (e) => this.handleGenerateClick(e) } 
+                        style={(this.props.players % 2 === 0) ? buttonStyle : disabledStyle}
+                    >
+                        Generate your bracket!
+                    </button>
+                </Link>
+
             </div>
         )
     }

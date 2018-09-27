@@ -3,7 +3,8 @@ import Bracket from '../components/Bracket';
 
 const mapStateToProps = (state) => {
     return {
-        groups: state.groups
+        players: state.players,
+        matches: state.matches
     }
 }
 

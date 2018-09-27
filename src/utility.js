@@ -16,3 +16,38 @@ export const shuffle = (array) => {
     
       return array;
 }
+
+export const roundFinder = (gameNo, initialPlayers) => {
+  let roundNo = 0
+
+  if (gameNo <= initialPlayers / 2) {
+      roundNo = 1;
+  } else if (gameNo > initialPlayers / 2 && gameNo <= (3 * initialPlayers) / 4) {
+      roundNo = 2;
+  } else if (gameNo > (3 * initialPlayers) / 4 && gameNo <= (7 * initialPlayers) / 8) {
+      roundNo = 3;
+  } else if (gameNo > (7 * initialPlayers) / 8 && gameNo <= (15 * initialPlayers) / 16) {
+      roundNo = 4;
+  }
+
+  return roundNo;
+}
+
+export const rowFinder = (startingPlayers, currentRound, matchNo) => {
+  let startingRow = (startingPlayers / 4) * (1 - (Math.pow(0.5, (currentRound - 1)))) + 1;
+  
+  //let firstMatchInRound = 0 // round 2 = (startingPlayers / 2) + 1
+                            // round 3 = (startingPlayers / 2) + (startingPlayers / 4) + 1
+                            // round 4 = (startingPlayers / 2) + (startingPlayers / 4) + (startingPlayers / 8) + 1
+
+  let firstMatchInRound = 0
+  for (let i = 0; i < (currentRound - 1); i += 1) {
+    firstMatchInRound += (startingPlayers / (2 * (currentRound - 1)))
+    //console.log(firstMatchInRound);
+  }
+  firstMatchInRound += 1
+  console.log(firstMatchInRound);
+
+  let rowNumber = (matchNo - firstMatchInRound) + startingRow;
+  return rowNumber;
+}
