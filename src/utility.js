@@ -28,6 +28,10 @@ export const roundFinder = (gameNo, initialPlayers) => {
       roundNo = 3;
   } else if (gameNo > (7 * initialPlayers) / 8 && gameNo <= (15 * initialPlayers) / 16) {
       roundNo = 4;
+  } else if (gameNo > (15 * initialPlayers) / 16 && gameNo <= (31 * initialPlayers) / 32) {
+      roundNo = 5;
+  } else if (gameNo > (31 * initialPlayers) / 32 && gameNo <= (63 * initialPlayers) / 64) {
+      roundNo = 6;
   }
 
   return roundNo;

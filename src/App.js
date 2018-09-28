@@ -13,9 +13,11 @@ class App extends Component {
       <Router>
         <Provider store={ store }>
           <React.Fragment>
+            <Switch>
               <Route exact path="/" component={ Setup } />
-              <Route exact path="/" component={ Bracket } />
-              {/* <Route component={ FourOhFour }/> */}
+              <Route exact path="/bracket" component={ Bracket } />
+              <Route component={ FourOhFour }/>
+            </Switch>
           </React.Fragment>
         </Provider>
       </Router>

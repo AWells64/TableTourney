@@ -19,6 +19,12 @@
     border-radius: 3px;
 }
 
+.generate-button a {
+    text-decoration: none;
+    color: white;
+}
+
 .title {
     text-align: center;
+    font-size: 3em; 
 }

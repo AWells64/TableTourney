@@ -44,17 +44,18 @@ class Setup extends Component {
                     <div className="setup-left-column">
                         <AddPlayer />
                         <p>Add a tournament legal number of players, (2, 4, 8, 16, 32...)</p>
-                        <Link to="/bracket/">
-                            <button
-                                style={ disabled ? disabledStyle : null }
-                                className="generate-button" 
-                                type="button" 
-                                onClick={ (e) => this.handleGenerateClick(e) }
-                                disabled={ disabled }
-                            >
-                                GENERATE BRACKET
-                            </button>
-                        </Link>
+                        <button
+                            style={ disabled ? disabledStyle : null }
+                            className="generate-button" 
+                            type="button" 
+                            onClick={ (e) => this.handleGenerateClick(e) }
+                            disabled={ disabled }
+                        >
+                            {
+                                !disabled ? (<Link to="/bracket"><span className="generate-button-text">GENERATE BRACKET</span></Link>) :
+                                (<span className="generate-button-text">GENERATE BRACKET</span>)
+                            }
+                        </button>
                     </div>
                     <div className="setup-right-column">
                         <PlayerList />
