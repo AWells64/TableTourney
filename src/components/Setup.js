@@ -23,17 +23,34 @@ class Setup extends Component {
     }
 
     render() {
+        const { players } = this.props;
+        const len = players.length;
+        const disabled = (len < 2) || (len > 2 && len < 4) || (len > 4 && len < 8) || (len > 8 && len < 16) || (len > 16 && len < 32) || (len > 32 && len < 64);
+        const disabledStyle = {
+            fontSize: '1.6em',
+            marginLeft: '25px',
+            marginTop: '100px',
+            padding: '20px',
+            backgroundColor: '#aaa',
+            color: 'white',
+            border: '2px solid white',
+            borderRadius: '3px'
+        }
+
         return (
             <Fragment>
-                <h1 className="title">TableTourney Bracket Generator</h1>
+                <h1 className="title">TableTennis Bracket Generator</h1>
                 <div className="setup-wrapper">
                     <div className="setup-left-column">
                         <AddPlayer />
+                        <p>Add a tournament legal number of players, (2, 4, 8, 16, 32...)</p>
                         <Link to="/bracket/">
                             <button
+                                style={ disabled ? disabledStyle : null }
                                 className="generate-button" 
                                 type="button" 
-                                onClick={ (e) => this.handleGenerateClick(e) } 
+                                onClick={ (e) => this.handleGenerateClick(e) }
+                                disabled={ disabled }
                             >
                                 GENERATE BRACKET
                             </button>

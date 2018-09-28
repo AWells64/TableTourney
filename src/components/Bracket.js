@@ -12,7 +12,7 @@ class Bracket extends Component {
             display: 'grid',
             gridTemplateColumns: `repeat(${NoOfRounds}, 1fr)`,
             gridTemplateRows: `repeat(${players.length / 2}, 1fr)`,
-            height: `${players.length / 2 * 150}px`
+            height: `${players.length / 2 * 210}px`
         }
 
         return(
