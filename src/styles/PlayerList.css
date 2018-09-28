@@ -3,9 +3,11 @@
     padding: 0px;
     border: 1px solid 	white;
     box-shadow: 1px 1px 10px black;
-    background-color: #302142;
+    background-color: #251a33;
     border: 2px solid white;
     border-radius: 3px;
+    overflow: scroll;
+    height: 500px;
 }
 
 .player-list-item {
@@ -14,8 +16,9 @@
     flex-direction: row;
     padding: 10px 50px;
     position: relative;
-    border-bottom: 1px solid #aaa;
+    border-bottom: 2px solid #aaa;
     box-shadow: 1px 1px 10px black;
+    background-color: #302142;
 }
 
 .player-name {

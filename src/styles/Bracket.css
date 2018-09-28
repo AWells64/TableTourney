@@ -13,3 +13,12 @@
     border-bottom: 1px solid #aaa;
     padding-bottom: 17px;
 }
+
+.game-number {
+    font-size: 0.8em;
+    text-align: center;
+    border-bottom: 1px solid #aaa;
+    padding: 10px 0px;
+    margin-top: 0px;    
+    background-color: #722CA9;
+}

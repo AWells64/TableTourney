@@ -12,7 +12,7 @@ class Bracket extends Component {
             display: 'grid',
             gridTemplateColumns: `repeat(${NoOfRounds}, 1fr)`,
             gridTemplateRows: `repeat(${players.length / 2}, 1fr)`,
-            height: `${players.length / 2 * 210}px`
+            height: `${players.length / 2 * 250}px`
         }
 
         return(
@@ -30,10 +30,11 @@ class Bracket extends Component {
                             }
 
                             return (
-                                <div className="match" key={ i } style={matchGroupStyle}>
-                                    <p className="match-player-text-1">{ match.player1 }</p>
-                                    <p className="match-player-text-2">{ match.player2 }</p>
-                                </div>
+                                    <div className="match" key={ i } style={matchGroupStyle}>
+                                        <p className="game-number">Game {gameNo}</p>
+                                        <p className="match-player-text-1">{ match.player1 }</p>
+                                        <p className="match-player-text-2">{ match.player2 }</p>
+                                    </div>
                             )
                         })
                     }

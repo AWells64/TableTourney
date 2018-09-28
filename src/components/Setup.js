@@ -29,7 +29,7 @@ class Setup extends Component {
         const disabledStyle = {
             fontSize: '1.6em',
             marginLeft: '25px',
-            marginTop: '100px',
+            marginTop: '30px',
             padding: '20px',
             backgroundColor: '#aaa',
             color: 'white',

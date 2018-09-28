@@ -8,14 +8,10 @@
     margin-right: 100px;
 }
 
-.setup-right-column {
- 
-}
-
 .generate-button {
     font-size: 1.6em;
     margin-left: 25px;
-    margin-top: 100px;
+    margin-top: 30px;
     padding: 20px;
     background-color: #722CA9;
     color: white;

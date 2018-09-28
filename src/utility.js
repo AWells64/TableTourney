@@ -40,14 +40,14 @@ export const rowFinder = (startingPlayers, currentRound, matchNo) => {
                             // round 3 = (startingPlayers / 2) + (startingPlayers / 4) + 1
                             // round 4 = (startingPlayers / 2) + (startingPlayers / 4) + (startingPlayers / 8) + 1
 
+
   let firstMatchInRound = 0
   for (let i = 0; i < (currentRound - 1); i += 1) {
-    firstMatchInRound += (startingPlayers / (2 * (currentRound - 1)))
+    firstMatchInRound += (startingPlayers / (2 * (Math.pow(2, i))))
     //console.log(firstMatchInRound);
   }
   firstMatchInRound += 1
-  console.log(firstMatchInRound);
 
-  let rowNumber = (matchNo - firstMatchInRound) + startingRow;
+  let rowNumber = Math.floor((matchNo - firstMatchInRound) + startingRow);
   return rowNumber;
 }

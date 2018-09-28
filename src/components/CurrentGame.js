@@ -18,12 +18,14 @@ class CurrentGame extends Component {
 
     addP1Point() {
         let newPoints = this.state.p1Points + 1;
-        this.setState({ p1Points: newPoints });
+        let flipTurn = (newPoints + this.state.p2Points) % 5 === 0
+        this.setState({ p1Points: newPoints, p1Turn: flipTurn ? !this.state.p1Turn : this.state.p1Turn });
     }
 
     addP2Point() {
         let newPoints = this.state.p2Points + 1;
-        this.setState({ p2Points: newPoints });
+        let flipTurn = (this.state.p1Points + newPoints) % 5 === 0
+        this.setState({ p2Points: newPoints, p1Turn: flipTurn ? !this.state.p1Turn : this.state.p1Turn });
     }
 
     initiateNextGame(winner) {
@@ -43,10 +45,21 @@ class CurrentGame extends Component {
         let { p1Points, p2Points, gameNo } = this.state;
         let winner = "";
 
-        if (p1Points >= 21) {
+        if (p1Points >= 21 && p1Points > (p2Points + 1)) {
             winner = 'p1'    
-        } else if (p2Points >= 21) {
+        } else if (p2Points >= 21 && p2Points > (p1Points + 1)) {
             winner = 'p2'
+        }
+
+        const nameStyle = {
+            padding: '10px',
+            border: '2px solid transparent',
+        }
+        const turnStyle = {
+            backgroundColor: '#302142',
+            padding: '10px',
+            border: '2px solid white',
+            borderRadius: '3px'
         }
 
         if (winner === 'p1') {
@@ -78,13 +91,13 @@ class CurrentGame extends Component {
                 <div className="current-game-wrapper">
                     <div>
                         <p className="points">{ p1Points }</p>
-                        <h2>{ this.props.matches[gameNo] ? this.props.matches[gameNo].player1: null  }</h2>
+                        <h2 style={ this.state.p1Turn ? turnStyle : nameStyle}>{ this.props.matches[gameNo] ? this.props.matches[gameNo].player1: null  }</h2>
                         <button className="add-point-button" onClick={ this.addP1Point }>+</button>
                     </div>
                     <p className="hyphen">{ ' - ' }</p>
                     <div>
                         <p className="points">{ p2Points }</p>
-                        <h2>{ this.props.matches[gameNo] ? this.props.matches[gameNo].player2: null }</h2>
+                        <h2 style={ this.state.p1Turn ? nameStyle : turnStyle}>{ this.props.matches[gameNo] ? this.props.matches[gameNo].player2: null }</h2>
                         <button className="add-point-button" onClick={ this.addP2Point }>+</button>
                     </div>
                 </div>
