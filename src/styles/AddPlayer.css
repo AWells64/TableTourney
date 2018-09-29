@@ -22,3 +22,11 @@
     border: 2px solid white;
     border-radius: 3px;
 }
+
+@media (max-width: 800px) {
+    .add-player-button {
+        display: block;
+        margin: auto;
+        width: 100px;
+    }
+}

@@ -1,8 +1,10 @@
 .match {
     background-color: #302142;
-    margin: 50px;
+    margin: 10px;
     border: 2px solid white;
     border-radius: 3px;
+    height: 70%;
+    width: 80%;
 }
 
 .match-player-text-1, .match-player-text-2 {
@@ -36,3 +38,4 @@
     margin-top: 0px;    
     background-color: #722CA9;
 }
+

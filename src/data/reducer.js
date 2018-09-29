@@ -47,20 +47,23 @@ const saveGroupsToState = (state, groups) => {
     })
 
     // Create Future Matches
+    let count = 0;
     for (let i = (state.players.length / 2) + 1; i < state.players.length; i += 1) {
         newState = {
             ...newState,
                 matches: {
                 ...newState.matches,
                 [i]: {
-                    player1: '',
-                    player2: '',
+                    player1: `Game ${(i - state.players.length / 2) + count} winner`,
+                    player2: `Game ${((i - state.players.length / 2) + 1) + count} winner`,
                     p1Points: 0,
                     p2Points: 0,
                     winner: ''
                 }
             }
         }
+
+        count += 1;
     }
 
     return newState;

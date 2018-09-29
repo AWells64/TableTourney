@@ -28,3 +28,22 @@
     text-align: center;
     font-size: 3em; 
 }
+
+@media (max-width: 800px) {
+    .setup-wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .setup-left-column {
+        margin: auto;
+    }
+
+    .setup-right-column {
+        margin-top: 50px;
+    }
+
+    .generate-button {
+        display: block;
+    }
+}
