@@ -13,7 +13,9 @@ class Bracket extends Component {
             display: 'grid',
             gridTemplateColumns: `repeat(${NoOfRounds}, 1fr)`,
             gridTemplateRows: `repeat(${players.length / 2}, 1fr)`,
-            height: `${players.length / 2 * 200}px`
+            height: `${players.length / 2 * 200}px`,
+            overflow: 'scroll',
+            minWidth: '800px',
         }
 
         return(
