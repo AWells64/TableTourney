@@ -31,7 +31,7 @@ const saveGroupsToState = (state, groups, tourneyName) => {
 
     // Create initial Matches
     groups.map((group, i) => {
-        newState = {
+         return newState = {
             ...newState,
             tourneyName: tourneyName,
             matches: {
