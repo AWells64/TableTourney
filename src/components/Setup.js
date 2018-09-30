@@ -29,6 +29,8 @@ class Setup extends Component {
         const tourneyName = this.state.tourneyNameValue;
         
         saveGroups(groupedPlayers, tourneyName);
+
+        this.props.history.push('/bracket');
     }
 
     handleChange(e) {
@@ -65,13 +67,10 @@ class Setup extends Component {
                             style={ disabled ? disabledStyle : null }
                             className="generate-button" 
                             type="button" 
-                            onClick={ (e) => this.handleGenerateClick(e) }
+                            onClick={ disabled ? null : (e) => this.handleGenerateClick(e) }
                             disabled={ disabled }
                         >
-                            {
-                                !disabled ? (<Link to="/bracket"><span className="generate-button-text">GENERATE BRACKET</span></Link>) :
-                                (<span className="generate-button-text">GENERATE BRACKET</span>)
-                            }
+                            <span className="generate-button-text">GENERATE BRACKET</span>
                         </button>
                     </div>
                     <div className="setup-right-column">
