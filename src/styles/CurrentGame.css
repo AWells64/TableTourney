@@ -17,6 +17,10 @@
     cursor: pointer;
 }
 
+.add-point-button:active {
+    background-color: #251a33;
+}
+
 .next-game-button {
     padding: 5px 15px 10px 15px;
     background-color: #722CA9;
@@ -25,6 +29,10 @@
     color: white;
     border: 2px solid white;
     border-radius: 3px;
+}
+
+.next-game-button:active {
+    background-color: #251a33;
 }
 
 .points {

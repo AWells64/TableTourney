@@ -24,6 +24,10 @@
     color: white;
 }
 
+.generate-button:active {
+    background-color: #251a33;
+}
+
 .title {
     text-align: center;
     font-size: 3em; 

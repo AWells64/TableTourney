@@ -23,6 +23,10 @@
     border-radius: 3px;
 }
 
+.add-player-button:active {
+    background-color: #251a33;
+}
+
 @media (max-width: 800px) {
     .add-player-button {
         display: block;
