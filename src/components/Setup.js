@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from 'react';
 import { shuffle } from '../utility';
-import { Link } from 'react-router-dom';
 import AddPlayer from '../containers/AddPlayer';
 import PlayerList from '../containers/PlayerList';
 import '../styles/Setup.css';
