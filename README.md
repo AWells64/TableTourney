@@ -20,5 +20,5 @@ Required: yarn, command line
 The app should now start up in your browser
 
 ## Built With
-React.js - Framework
-Redux - State management
+* React.js - Framework
+* Redux - State management
