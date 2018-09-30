@@ -12,10 +12,11 @@ export const deletePlayer = player => {
     }
 }
 
-export const saveGroups = groups => {
+export const saveGroups = (groups, tourneyName) => {
     return {
         type: 'saveGroups',
-        groups: groups
+        groups: groups,
+        tourneyName: tourneyName
     }
 }
 

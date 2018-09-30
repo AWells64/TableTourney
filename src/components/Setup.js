@@ -6,6 +6,13 @@ import PlayerList from '../containers/PlayerList';
 import '../styles/Setup.css';
 
 class Setup extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            tourneyNameValue: ""
+        }
+    }
     handleGenerateClick(e) {
         e.preventDefault();
 
@@ -18,8 +25,14 @@ class Setup extends Component {
         while (shuffledPlayers.length > 0) {
             groupedPlayers.push(shuffledPlayers.splice(0, groupSize));
         }
+
+        const tourneyName = this.state.tourneyNameValue;
         
-        saveGroups(groupedPlayers);
+        saveGroups(groupedPlayers, tourneyName);
+    }
+
+    handleChange(e) {
+        this.setState({ tourneyNameValue: e.target.value })
     }
 
     render() {
@@ -42,6 +55,10 @@ class Setup extends Component {
                 <h1 className="title">TableTennis Bracket Generator</h1>
                 <div className="setup-wrapper">
                     <div className="setup-left-column">
+                        <div>
+                            <label className="input-label">Enter a name for your tournament:</label>
+                            <input className="tourney-name-input" value={this.state.tourneyNameValue} type="text" onChange={ (e) => this.handleChange(e)} />
+                        </div>
                         <AddPlayer />
                         <p>Add a tournament legal number of players, (2, 4, 8, 16, 32...)</p>
                         <button

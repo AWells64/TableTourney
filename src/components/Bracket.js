@@ -21,6 +21,7 @@ class Bracket extends Component {
         return(
             players.length <= 0 ? <Link to="/"><h2 className="player-warning">Click here to add some players to your tournament</h2></Link> : (
                 <Fragment>
+                    <h1 className="tourney-name">{ this.props.tourneyName }</h1>
                     <div style={bracketWrapperStyle}>
                         {
                             Object.values(matches).map((match, i) => {

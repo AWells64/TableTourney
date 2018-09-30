@@ -10,7 +10,7 @@ const mapStateToProps = (state) => {
 
 const mapDisptachToProps = (dispatch) => {
     return {
-        saveGroups: (groups) => dispatch(saveGroups(groups))
+        saveGroups: (groups, tourneyName) => dispatch(saveGroups(groups, tourneyName))
     }
 }
 

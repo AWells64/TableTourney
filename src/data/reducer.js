@@ -26,13 +26,14 @@ const deletePlayerFromState = (state, player) => {
     return newState;
 }
 
-const saveGroupsToState = (state, groups) => {
+const saveGroupsToState = (state, groups, tourneyName) => {
     let newState = { ...state };
 
     // Create initial Matches
     groups.map((group, i) => {
         newState = {
             ...newState,
+            tourneyName: tourneyName,
             matches: {
                 ...newState.matches,
                 [i + 1]: {
@@ -99,7 +100,7 @@ const reducer = (state, action) => {
         case 'deletePlayer':
             return deletePlayerFromState(state, action.player);
         case 'saveGroups':
-            return saveGroupsToState(state, action.groups);
+            return saveGroupsToState(state, action.groups, action.tourneyName);
         case 'saveMatch':
             return saveMatchToState(state, action.matchData);
         default:
