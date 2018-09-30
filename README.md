@@ -6,6 +6,8 @@ This web app is designed to allow a user to create a list of players for their t
 
 The app also allows for scoring individual games and when a winner is decided, the bracket is updated to reflect those results.
 
+The app supports a player count of any single-elimination legal number of players. (2, 4, 8, 16, 32...)
+
 A live version of the app can be found here - http://aden.developme.space/
 
 ## Getting Started
