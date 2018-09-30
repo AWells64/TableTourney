@@ -52,6 +52,7 @@
 
     .setup-left-column {
         margin: auto;
+        width: 100%;
     }
 
     .setup-right-column {
@@ -60,5 +61,13 @@
 
     .generate-button {
         display: block;
+    }
+
+    .tourney-name-input {
+        width: 75%;
+    }
+
+    .generate-button {
+        margin: auto !important;
     }
 }

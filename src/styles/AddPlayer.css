@@ -33,4 +33,8 @@
         margin: auto;
         width: 100px;
     }
+
+    .player-input {
+        width: 75%;
+    }
 }
